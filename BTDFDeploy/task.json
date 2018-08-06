@@ -1,7 +1,7 @@
 {
   "id": "E18B2AB1-3405-4AFF-9619-356AEE8D79C5",
   "name": "BTDFDeploy",
-  "friendlyName": "BTDF - Deploy for BIG",
+  "friendlyName": "BTDF - Deploy",
   "description": "Deployment Framework for BizTalk btdfproj project target: Deploy",
   "author": "Jason Vercellone",
   "helpMarkDown": "",
