@@ -1,6 +1,6 @@
-# Deployment Framework for BizTalk VSTS release tasks for BIG
+# Deployment Framework for BizTalk VSTS release tasks with extended configuration support
 
-This extension facilitates the release (not build) of BizTalk applications to server(s) with a [private agent], optimized for BIG(https://www.visualstudio.com/en-us/docs/build/concepts/agents/agents) (deployment group members qualify).  It started as a decomposition of the monolithic [Install-BizTalkApplication](http://biztalkalm.codeplex.com/SourceControl/latest#Prod/BuildScripts/Install-BizTalkApplication.ps1) PowerShell script into more granular tasks for greater flexibility and enhanced feedback within the scope of a vsts release.
+This extension facilitates the release (not build) of BizTalk applications to server(s) with a [private agent](https://www.visualstudio.com/en-us/docs/build/concepts/agents/agents) (deployment group members qualify).  It started as a decomposition of the monolithic [Install-BizTalkApplication](http://biztalkalm.codeplex.com/SourceControl/latest#Prod/BuildScripts/Install-BizTalkApplication.ps1) PowerShell script into more granular tasks for greater flexibility and enhanced feedback within the scope of a vsts release.
 
 The BTDF Deploy/Undeploy tasks require artifacts built using the [Deployment Framework for BizTalk (BTDF)](http://biztalkdeployment.codeplex.com/).  For those unfamiliar, I recommend starting with Thomas F. Abraham's recently published [Deployment Framework for BizTalk Visual Studio extensions](https://marketplace.visualstudio.com/items?itemName=DeployFxForBizTalkTeam.DeploymentFrameworkforBizTalk).
 

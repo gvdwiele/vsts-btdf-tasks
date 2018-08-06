@@ -1,7 +1,7 @@
 {
   "id": "347AEBC3-CA89-473C-A0B2-43427F509100",
   "name": "BTDFUndeploy",
-  "friendlyName": "BTDF - Undeploy for BIG",
+  "friendlyName": "BTDF - Undeploy",
   "description": "Deployment Framework for BizTalk btdfproj project target: Undeploy",
   "author": "Jason Vercellone",
   "helpMarkDown": "",
