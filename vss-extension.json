@@ -1,15 +1,15 @@
 {
     "manifestVersion": 1,
-    "id": "btdf-tasks",
-    "name": "Deployment Framework for BizTalk",
-    "version": "0.0.22",
-    "publisher": "vercellj",
+    "id": "eaisuite-btdf-tasks",
+    "name": "Deployment Framework for BizTalk - BICT EAI Suite",
+    "version": "0.1.0",
+    "publisher": "Beaulieu-ICT",
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
         }
     ],    
-    "description": "Deployment Framework for BizTalk VSTS release tasks.",
+    "description": "VSTS/TFS release tasks for the Deployment Framework for BizTalk",
     "categories": [
         "Build and release"
     ],
@@ -17,7 +17,8 @@
         "BizTalk",
         "BTDF",
 		"MSI",
-        "tasks"
+        "tasks",
+        "EaiSuite"
     ],
     "icons": {
         "default": "extension-icon.png"        

@@ -1,7 +1,7 @@
 {
-  "id": "cce8979f-88a6-4ff2-8742-23dac3c088b4",
+  "id": "E18B2AB1-3405-4AFF-9619-356AEE8D79C5",
   "name": "BTDFDeploy",
-  "friendlyName": "BTDF - Deploy",
+  "friendlyName": "BTDF - Deploy for BIG",
   "description": "Deployment Framework for BizTalk btdfproj project target: Deploy",
   "author": "Jason Vercellone",
   "helpMarkDown": "",
@@ -25,6 +25,22 @@
       "defaultValue": "",
       "required": true,
       "helpMarkDown": "BizTalk application name."
+    },
+    {
+      "name": "ProgramFilesDir",
+      "type": "string",
+      "label": "Program Files Folder",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Program Files Folder."
+    },
+    {
+      "name": "ProgramName",
+      "type": "string",
+      "label": "Installed Program Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Installed Program Name."
     },
     {
       "name": "Environment",

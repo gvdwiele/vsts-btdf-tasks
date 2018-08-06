@@ -1,7 +1,7 @@
 {
-  "id": "cc49f507-f95f-4385-8d25-6df0402be452",
+  "id": "50569D9E-6EEF-46CE-8FA0-21074D6F3BD6",
   "name": "BizTalkTerminateSuspended",
-  "friendlyName": "Terminate Suspended",
+  "friendlyName": "Terminate Suspended for BIG",
   "description": "Terminates suspended service instances and optionally saves the relevant messages and metadata",
   "author": "Jason Vercellone",
   "helpMarkDown": "",

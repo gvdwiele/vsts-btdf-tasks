@@ -1,7 +1,7 @@
 {
-  "id": "cd4cb834-3b8b-48d1-b46d-21a97da1774e",
+  "id": "68E7784B-70E0-4A6B-9F6C-09DDD450B4F6",
   "name": "MSIUninstall",
-  "friendlyName": "MSI Uninstall",
+  "friendlyName": "MSI Uninstall for BIG",
   "description": "Uninstall an MSI using the command msiexec.exe /x[InstallGuid]",
   "author": "Jason Vercellone",
   "helpMarkDown": "",

@@ -2,6 +2,10 @@
 param(
     [Parameter(Mandatory=$true,ParameterSetName='Name',HelpMessage="Msi file must exist")]
     [string]$Name,
+	[Parameter(Mandatory)]
+    [string]$ProgramFilesDir,
+	[Parameter(Mandatory)]
+    [string]$ProgramName,
 
     [Parameter(Mandatory=$true)]
     [string]$Environment,
@@ -11,10 +15,10 @@ param(
 )
 . "$PSScriptRoot\Init-BTDFTasks.ps1"
 
-$ApplicationPath = Join-Path $ProgramFiles $Name
+$ApplicationPath = Join-Path $ProgramFilesDir $ProgramName
 if (Test-Path -Path $ApplicationPath -ErrorAction SilentlyContinue) {
     $EnvironmentSettingsPath = Get-ChildItem -Path $ApplicationPath -Recurse -Filter 'EnvironmentSettings' | Select-Object -ExpandProperty FullName -First 1
-    $EnvironmentSettings = Join-Path $EnvironmentSettingsPath ('{0}_settings.xml' -f $Environment)
+    $EnvironmentSettings = Join-Path $EnvironmentSettingsPath ('{0}settings.xml' -f $Environment)
     if (!(Test-Path -Path $EnvironmentSettings)) {
         $DeploymentToolsPath = Get-ChildItem -Path $ApplicationPath -Recurse -Filter 'DeployTools' | Select-Object -ExpandProperty FullName -First 1
         $esxargs = [string[]]@(

@@ -1,7 +1,7 @@
 {
-  "id": "5f085399-5bf7-44e2-9539-6b1125e4aa2f",
+  "id": "A204A012-659C-457D-A0B4-286360660F5A",
   "name": "MSIInstall",
-  "friendlyName": "MSI Install",
+  "friendlyName": "MSI Install for BIG",
   "description": "Install an MSI using the command msiexec.exe /i [msi file]",
   "author": "Jason Vercellone",
   "helpMarkDown": "",

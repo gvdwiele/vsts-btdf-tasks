@@ -1,7 +1,7 @@
 {
-  "id": "f5504365-d837-4efa-bcf4-fef6ec064501",
+  "id": "347AEBC3-CA89-473C-A0B2-43427F509100",
   "name": "BTDFUndeploy",
-  "friendlyName": "BTDF - Undeploy",
+  "friendlyName": "BTDF - Undeploy for BIG",
   "description": "Deployment Framework for BizTalk btdfproj project target: Undeploy",
   "author": "Jason Vercellone",
   "helpMarkDown": "",
@@ -21,10 +21,26 @@
     {
       "name": "Name",
       "type": "string",
-      "label": "Name",
+      "label": "BizTalk Application Name",
       "defaultValue": "",
       "required": true,
       "helpMarkDown": "BizTalk application name."
+    },
+    {
+      "name": "ProgramFilesDir",
+      "type": "string",
+      "label": "Program Files Folder",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Program Files Folder."
+    },
+    {
+      "name": "ProgramName",
+      "type": "string",
+      "label": "Installed Program Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Installed Program Name."
     },
     {
       "name": "BTDeployMgmtDB",

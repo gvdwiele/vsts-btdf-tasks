@@ -2,7 +2,10 @@
 param(
 	[Parameter(Mandatory)]
 	[string]$Name,
-
+	[Parameter(Mandatory)]
+    [string]$ProgramFilesDir,
+	[Parameter(Mandatory)]
+    [string]$ProgramName,
 	[string]$BTDeployMgmtDB=$true
 )
 . "$PSScriptRoot\Init-BTDFTasks.ps1"
@@ -28,7 +31,7 @@ function Test-BTDFApplicationDeployed {
     }
 }
 if (Test-BTDFApplicationDeployed -Name $Name) {
-    $ApplicationPath = Join-Path $ProgramFiles $Name
+    $ApplicationPath = Join-Path $ProgramFilesDir $ProgramName
 
     $BTDFProject = Get-ChildItem -Path $ApplicationPath -Filter '*.btdfproj' -Recurse | Select-Object -ExpandProperty FullName -First 1
     $DeployResults = Get-ChildItem -Path $ApplicationPath -Filter 'DeployResults' -Recurse | Select-Object -ExpandProperty FullName -First 1
