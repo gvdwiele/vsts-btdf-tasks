@@ -1,9 +1,9 @@
 {
-  "id": "A204A012-659C-457D-A0B4-286360660F5A",
-  "name": "MSIInstall",
-  "friendlyName": "MSI Install for BIG",
+  "id": "4ac385b6-bc50-4ee7-ba92-30afa0d60fe6",
+  "name": "MSIInstallTask",
+  "friendlyName": "MSI Install",
   "description": "Install an MSI using the command msiexec.exe /i [msi file]",
-  "author": "Jason Vercellone",
+  "author": "Jason Vercellone and Fréderic Cordier",
   "helpMarkDown": "",
   "category": "Deploy",
   "visibility": [
@@ -12,8 +12,8 @@
   "demands": [],
   "version": {
     "Major": "0",
-    "Minor": "0",
-    "Patch": "12"
+    "Minor": "1",
+    "Patch": "0"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Install: $(Name)",
@@ -29,7 +29,7 @@
     {
       "name": "Name",
       "type": "string",
-      "label": "Name",
+      "label": "Product Name",
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "Product name (BizTalk application) to install. (optional; default is the non-numeric portion of the MSI base file name)."

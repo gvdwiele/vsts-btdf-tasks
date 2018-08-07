@@ -30,6 +30,13 @@ function Test-BTDFApplicationDeployed {
         }
     }
 }
+
+if ([string]::IsNullOrWhiteSpace($ProgramFilesDir)) {
+    $ProgramFilesDir = $ProgramFiles
+}
+if ([string]::IsNullOrWhiteSpace($ProgramName)) {
+    $ProgramName = $Name
+}
 if (Test-BTDFApplicationDeployed -Name $Name) {
     $ApplicationPath = Join-Path $ProgramFilesDir $ProgramName
 

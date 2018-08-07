@@ -11,10 +11,17 @@ param(
     [string]$Environment,
 
     [string]$BTDeployMgmtDB='true',
-    [string]$SkipUndeploy='true'
+    [string]$SkipUndeploy='true',
+    [string]$BTQuickDeploy='false'
 )
 . "$PSScriptRoot\Init-BTDFTasks.ps1"
 
+if ([string]::IsNullOrWhiteSpace($ProgramFilesDir)) {
+    $ProgramFilesDir = $ProgramFiles
+}
+if ([string]::IsNullOrWhiteSpace($ProgramName)) {
+    $ProgramName = $Name
+}
 $ApplicationPath = Join-Path $ProgramFilesDir $ProgramName
 if (Test-Path -Path $ApplicationPath -ErrorAction SilentlyContinue) {
     $EnvironmentSettingsPath = Get-ChildItem -Path $ApplicationPath -Recurse -Filter 'EnvironmentSettings' | Select-Object -ExpandProperty FullName -First 1
@@ -37,15 +44,27 @@ if (Test-Path -Path $ApplicationPath -ErrorAction SilentlyContinue) {
     $DeployResults = Get-ChildItem -Path $ApplicationPath -Filter 'DeployResults' -Recurse | Select-Object -ExpandProperty FullName -First 1
     $DeployResults = Join-Path $DeployResults 'DeployResults.txt'
 
-    $arguments = [string[]]@(
-        "/l:FileLogger,Microsoft.Build.Engine;logfile=`"$DeployResults`""
-        '/p:Configuration=Server'
-        "/p:DeployBizTalkMgmtDB=$BTDeployMgmtDB"
-        "/p:ENV_SETTINGS=`"$EnvironmentSettings`""
-        "/p:SkipUndeploy=$SkipUndeploy"
-        '/target:Deploy'
-        "`"$BTDFProject`""
-    )
+    if ($BTQuickDeploy -eq 'true') {
+        $arguments = [string[]]@(
+            "/l:FileLogger,Microsoft.Build.Engine;logfile=`"$DeployResults`""
+            '/p:Configuration=Server'
+            "/p:ENV_SETTINGS=`"$EnvironmentSettings`""
+            '/target:UpdateOrchestration'
+            "`"$BTDFProject`""
+        )
+    }
+    else {
+        $arguments = [string[]]@(
+            "/l:FileLogger,Microsoft.Build.Engine;logfile=`"$DeployResults`""
+            '/p:Configuration=Server'
+            "/p:DeployBizTalkMgmtDB=$BTDeployMgmtDB"
+            "/p:ENV_SETTINGS=`"$EnvironmentSettings`""
+            "/p:SkipUndeploy=$SkipUndeploy"
+            '/target:Deploy'
+            "`"$BTDFProject`""
+        )
+    }
+
     $cmd = $BTDFMSBuild,($arguments -join ' ') -join ' '
     Write-Host $cmd
     $exitCode = (Start-Process -FilePath $BTDFMSBuild -ArgumentList $arguments -NoNewWindow -Wait -PassThru).ExitCode

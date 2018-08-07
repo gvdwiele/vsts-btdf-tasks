@@ -1,9 +1,9 @@
 {
-  "id": "68E7784B-70E0-4A6B-9F6C-09DDD450B4F6",
-  "name": "MSIUninstall",
-  "friendlyName": "MSI Uninstall for BIG",
+  "id": "8b95e83b-2183-45b1-8354-460a0e4aab7c",
+  "name": "MSIUninstallTask",
+  "friendlyName": "MSI Uninstall",
   "description": "Uninstall an MSI using the command msiexec.exe /x[InstallGuid]",
-  "author": "Jason Vercellone",
+  "author": "Jason Vercellone and Fréderic Cordier",
   "helpMarkDown": "",
   "category": "Deploy",
   "visibility": [
@@ -12,8 +12,8 @@
   "demands": [],
   "version": {
     "Major": "0",
-    "Minor": "0",
-    "Patch": "5"
+    "Minor": "1",
+    "Patch": "0"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Uninstall: $(Product)",

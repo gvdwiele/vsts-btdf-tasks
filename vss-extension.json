@@ -1,9 +1,9 @@
 {
     "manifestVersion": 1,
-    "id": "eaisuite-btdf-tasks",
-    "name": "Deployment Framework for BizTalk - BICT EAI Suite",
+    "id": "btdf-custom-tasks",
+    "name": "Custom Release Tasks for Deployment Framework for BizTalk",
     "version": "0.1.0",
-    "publisher": "Beaulieu-ICT",
+    "publisher": "cordifed",
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
@@ -17,8 +17,7 @@
         "BizTalk",
         "BTDF",
 		"MSI",
-        "tasks",
-        "EaiSuite"
+        "tasks"
     ],
     "icons": {
         "default": "extension-icon.png"        
