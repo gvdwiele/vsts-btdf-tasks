@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "btdf-custom-tasks",
     "name": "Custom Release Tasks for Deployment Framework for BizTalk",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "publisher": "cordifed",
     "targets": [
         {
@@ -47,6 +47,9 @@
             "path": "BTDFUndeploy"
         },
         {
+            "path": "BTDFRedeploy"
+        },
+        {
             "path": "MSIInstall"
         },
         {
@@ -82,6 +85,16 @@
             ],
             "properties": {
                 "name": "BTDFUndeploy"
+            }
+        },
+        {
+            "id": "BTDFRedeploy",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BTDFRedeploy"
             }
         },
         {

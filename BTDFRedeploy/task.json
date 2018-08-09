@@ -1,0 +1,77 @@
+{
+  "id": "5390fb0f-cd61-4912-8db5-ef9db44401a3",
+  "name": "BTDFRedeployTask",
+  "friendlyName": "BTDF - Redeploy",
+  "description": "Deployment Framework for BizTalk btdfproj project target: Redeploy",
+  "author": "Jason Vercellone and Fréderic Cordier",
+  "helpMarkDown": "",
+  "category": "Deploy",
+  "visibility": [
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "0",
+    "Minor": "1",
+    "Patch": "0"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "Redeploy: $(Name)",
+  "groups": [
+    {
+        "name": "options",
+        "displayName": "Options",
+        "isExpanded": true
+    }
+  ],
+  "inputs": [
+    {
+      "name": "Name",
+      "type": "string",
+      "label": "BizTalk Application Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "BizTalk application name."
+    },
+    {
+      "name": "Environment",
+      "type": "string",
+      "label": "Environment",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The BTDF environment name, used as a prefix to the settings file name (i.e. '{0}settings.xml')"
+    },
+    {
+      "name": "BTDeployMgmtDB",
+      "type": "boolean",
+      "label": "Deploy Mgmt DB",
+      "defaultValue": "true",
+      "helpMarkDown": "Boolean DeployBizTalkMgmtDB MSBuild property setting used when building the BTDF project (*.btdfproj). Is ignored when quick deploy is selected."
+    },
+    {
+      "name": "ProgramFilesDir",
+      "type": "string",
+      "label": "Program Files Folder",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Program Files Folder, if different from the system default.",
+      "groupName": "options"
+    },
+    {
+      "name": "ProgramName",
+      "type": "string",
+      "label": "Product Name",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Installed product name, if different from the BizTalk application name.",
+      "groupName": "options"
+    }
+  ],
+  "execution": {
+    "PowerShell": {
+      "target": "$(currentDirectory)\\Redeploy-BTDFApplication.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(currentDirectory)"
+    }
+  }
+}
