@@ -49,6 +49,14 @@
       "helpMarkDown": "Boolean DeployBizTalkMgmtDB MSBuild property setting used when building the BTDF project (*.btdfproj). Is ignored when quick deploy is selected."
     },
     {
+      "name": "BtsAccount",
+      "type": "string",
+      "label": "BizTalk Service Account",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Enter the domain-qualified account name used by the BizTalk host instance to read/write from/to FILE port physical paths."
+    },
+    {
       "name": "ProgramFilesDir",
       "type": "string",
       "label": "Program Files Folder",

@@ -12,7 +12,8 @@ param(
 
     [string]$BTDeployMgmtDB='true',
     [string]$SkipUndeploy='true',
-    [string]$BTQuickDeploy='false'
+    [string]$BTQuickDeploy='false',
+    [string]$BtsAccount=''
 )
 . "$PSScriptRoot\Init-BTDFTasks.ps1"
 
@@ -58,6 +59,7 @@ if (Test-Path -Path $ApplicationPath -ErrorAction SilentlyContinue) {
             "/l:FileLogger,Microsoft.Build.Engine;logfile=`"$DeployResults`""
             '/p:Configuration=Server'
             "/p:BT_DEPLOY_MGMT_DB=$BTDeployMgmtDB"
+            "/p:BTSACCOUNT=`"$BtsAccount`""
             "/p:ENV_SETTINGS=`"$EnvironmentSettings`""
             "/p:SkipUndeploy=$SkipUndeploy"
             '/target:Deploy'
