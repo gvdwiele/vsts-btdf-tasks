@@ -46,7 +46,7 @@ if (Test-Path -Path $ApplicationPath -ErrorAction SilentlyContinue) {
         "/l:FileLogger,Microsoft.Build.Engine;logfile=`"$DeployResults`""
         '/p:Configuration=Server'
         "/p:ENV_SETTINGS=`"$EnvironmentSettings`""
-        "/p:DeployBizTalkMgmtDB=$BTDeployMgmtDB"
+        "/p:BT_DEPLOY_MGMT_DB=$BTDeployMgmtDB"
         '/target:Deploy'
         "`"$BTDFProject`""
     )

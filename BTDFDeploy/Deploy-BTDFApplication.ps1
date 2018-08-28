@@ -57,7 +57,7 @@ if (Test-Path -Path $ApplicationPath -ErrorAction SilentlyContinue) {
         $arguments = [string[]]@(
             "/l:FileLogger,Microsoft.Build.Engine;logfile=`"$DeployResults`""
             '/p:Configuration=Server'
-            "/p:DeployBizTalkMgmtDB=$BTDeployMgmtDB"
+            "/p:BT_DEPLOY_MGMT_DB=$BTDeployMgmtDB"
             "/p:ENV_SETTINGS=`"$EnvironmentSettings`""
             "/p:SkipUndeploy=$SkipUndeploy"
             '/target:Deploy'

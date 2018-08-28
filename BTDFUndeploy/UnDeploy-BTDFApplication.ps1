@@ -6,7 +6,7 @@ param(
     [string]$ProgramFilesDir,
 	[Parameter(Mandatory)]
     [string]$ProgramName,
-	[string]$BTDeployMgmtDB=$true
+    [string]$BTDeployMgmtDB=$true
 )
 . "$PSScriptRoot\Init-BTDFTasks.ps1"
 
@@ -51,7 +51,7 @@ if (Test-BTDFApplicationDeployed -Name $Name) {
         $arguments = [string[]]@(
             "/l:FileLogger,Microsoft.Build.Engine;logfile=`"$DeployResults`""
             "/p:Configuration=Server"
-            "/p:DeployBizTalkMgmtDB=$BTDeployMgmtDB"
+            "/p:BT_DEPLOY_MGMT_DB=$BTDeployMgmtDB"
             '/target:Undeploy'
             """$BTDFProject"""
         )
