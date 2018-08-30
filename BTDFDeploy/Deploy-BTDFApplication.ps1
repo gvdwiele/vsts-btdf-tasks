@@ -59,6 +59,7 @@ if (Test-Path -Path $ApplicationPath -ErrorAction SilentlyContinue) {
             "/l:FileLogger,Microsoft.Build.Engine;logfile=`"$DeployResults`""
             '/p:Configuration=Server'
             "/p:BT_DEPLOY_MGMT_DB=$BTDeployMgmtDB"
+            "/p:DeployBizTalkMgmtDB=$BTDeployMgmtDB"
             "/p:BTSACCOUNT=`"$BtsAccount`""
             "/p:ENV_SETTINGS=`"$EnvironmentSettings`""
             "/p:SkipUndeploy=$SkipUndeploy"

@@ -48,6 +48,7 @@ if (Test-Path -Path $ApplicationPath -ErrorAction SilentlyContinue) {
         '/p:Configuration=Server'
         "/p:ENV_SETTINGS=`"$EnvironmentSettings`""
         "/p:BT_DEPLOY_MGMT_DB=$BTDeployMgmtDB"
+        "/p:DeployBizTalkMgmtDB=$BTDeployMgmtDB"
         "/p:BTSACCOUNT=`"$BtsAccount`""
         '/target:Deploy'
         "`"$BTDFProject`""

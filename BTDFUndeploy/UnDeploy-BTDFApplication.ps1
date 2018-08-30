@@ -52,6 +52,7 @@ if (Test-BTDFApplicationDeployed -Name $Name) {
             "/l:FileLogger,Microsoft.Build.Engine;logfile=`"$DeployResults`""
             "/p:Configuration=Server"
             "/p:BT_DEPLOY_MGMT_DB=$BTDeployMgmtDB"
+            "/p:DeployBizTalkMgmtDB=$BTDeployMgmtDB"
             '/target:Undeploy'
             """$BTDFProject"""
         )
