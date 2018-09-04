@@ -1,0 +1,10 @@
+﻿{
+    "ProductName":  "Windows PowerShell module for BTDF",
+    "ProductShortName":  "powershell-btdf",
+    "UpgradeCodeX86":  "8BDF7952-18B3-4BE1-839D-47E07A5CBFDC",
+    "UpgradeCodeX64":  "11D539E2-3FC6-4454-A9E7-B63C22BEADE1",
+    "Manufacturer":  "Gregory Van de Wiele",
+    "AboutLink":  "http://www.eai.be",
+    "HelpLink":  "http://www.eai.be",
+    "ProductVersion":  "1.0.0"
+}
