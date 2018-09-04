@@ -16,7 +16,7 @@
         [string]$BTQuickDeploy = 'false'
     )
     Begin {
-        . ..\private\Init-BTDFTasks.ps1
+        . $PSScriptRoot\..\private\Init-BTDFTasks.ps1
     }
     Process {
         if ([string]::IsNullOrWhiteSpace($ProgramFilesDir)) {

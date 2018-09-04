@@ -18,7 +18,7 @@
         [string]$Arguments
     )
     Begin {
-        . "$PSScriptRoot\Init-BTDFTasks.ps1"
+        . $PSScriptRoot\..\private\Init-BTDFTasks.ps1
     }
     Process {
 
