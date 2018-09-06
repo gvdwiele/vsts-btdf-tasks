@@ -63,7 +63,7 @@
     # NestedModules = @()
     
     # Functions to export from this module
-    FunctionsToExport = '*'
+    FunctionsToExport = @('Deploy-BTDFApplication','Install-BTDFApplication','Redeploy-BTDFApplication','Remove-BizTalkSuspended','UnDeploy-BTDFApplication','UnInstall-BTDFApplication')
     
     # Cmdlets to export from this module
     CmdletsToExport = '*'
