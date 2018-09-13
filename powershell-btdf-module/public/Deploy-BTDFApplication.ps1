@@ -13,7 +13,8 @@
 
         [string]$BTDeployMgmtDB = 'true',
         [string]$SkipUndeploy = 'true',
-        [string]$BTQuickDeploy = 'false'
+        [string]$BTQuickDeploy = 'false',
+        [string]$BtsAccount=''
     )
     Begin {
         . $PSScriptRoot\..\private\Init-BTDFTasks.ps1
@@ -47,26 +48,28 @@
             $DeployResults = Get-ChildItem -Path $ApplicationPath -Filter 'DeployResults' -Recurse | Select-Object -ExpandProperty FullName -First 1
             $DeployResults = Join-Path $DeployResults 'DeployResults.txt'
 
-            if ($BTQuickDeploy -eq 'true') {
-                $arguments = [string[]]@(
-                    "/l:FileLogger,Microsoft.Build.Engine;logfile=`"$DeployResults`""
-                    '/p:Configuration=Server'
-                    "/p:ENV_SETTINGS=`"$EnvironmentSettings`""
-                    '/target:UpdateOrchestration'
-                    "`"$BTDFProject`""
-                )
-            }
-            else {
-                $arguments = [string[]]@(
-                    "/l:FileLogger,Microsoft.Build.Engine;logfile=`"$DeployResults`""
-                    '/p:Configuration=Server'
-                    "/p:DeployBizTalkMgmtDB=$BTDeployMgmtDB"
-                    "/p:ENV_SETTINGS=`"$EnvironmentSettings`""
-                    "/p:SkipUndeploy=$SkipUndeploy"
-                    '/target:Deploy'
-                    "`"$BTDFProject`""
-                )
-            }
+    if ($BTQuickDeploy -eq 'true') {
+        $arguments = [string[]]@(
+            "/l:FileLogger,Microsoft.Build.Engine;logfile=`"$DeployResults`""
+            '/p:Configuration=Server'
+            "/p:ENV_SETTINGS=`"$EnvironmentSettings`""
+            '/target:UpdateOrchestration'
+            "`"$BTDFProject`""
+        )
+    }
+    else {
+        $arguments = [string[]]@(
+            "/l:FileLogger,Microsoft.Build.Engine;logfile=`"$DeployResults`""
+            '/p:Configuration=Server'
+            "/p:BT_DEPLOY_MGMT_DB=$BTDeployMgmtDB"
+            "/p:DeployBizTalkMgmtDB=$BTDeployMgmtDB"
+            "/p:BTSACCOUNT=`"$BtsAccount`""
+            "/p:ENV_SETTINGS=`"$EnvironmentSettings`""
+            "/p:SkipUndeploy=$SkipUndeploy"
+            '/target:Deploy'
+            "`"$BTDFProject`""
+        )
+    }
 
             $cmd = $BTDFMSBuild, ($arguments -join ' ') -join ' '
             Write-Host $cmd

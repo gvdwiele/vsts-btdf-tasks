@@ -32,18 +32,19 @@
             else {
                 $DeployResults = Join-Path $DeployResults 'DeployResults.txt'
 
-                $BTDFMSBuild = Get-MSBuildPath
-                $arguments = [string[]]@(
-                    "/l:FileLogger,Microsoft.Build.Engine;logfile=`"$DeployResults`""
-                    "/p:Configuration=Server"
-                    "/p:DeployBizTalkMgmtDB=$BTDeployMgmtDB"
-                    '/target:Undeploy'
-                    """$BTDFProject"""
-                )
-                $cmd = $BTDFMSBuild, ($arguments -join ' ') -join ' '
-                Write-Host $cmd
-                $exitCode = (Start-Process -FilePath "$BTDFMSBuild" -ArgumentList $arguments -Wait -PassThru).ExitCode
-                Write-Host (Get-Content -Path $DeployResults | Out-String)
+        $BTDFMSBuild = Get-MSBuildPath
+        $arguments = [string[]]@(
+            "/l:FileLogger,Microsoft.Build.Engine;logfile=`"$DeployResults`""
+            "/p:Configuration=Server"
+            "/p:BT_DEPLOY_MGMT_DB=$BTDeployMgmtDB"
+            "/p:DeployBizTalkMgmtDB=$BTDeployMgmtDB"
+            '/target:Undeploy'
+            """$BTDFProject"""
+        )
+        $cmd = $BTDFMSBuild,($arguments -join ' ') -join ' '
+        Write-Host $cmd
+        $exitCode = (Start-Process -FilePath "$BTDFMSBuild" -ArgumentList $arguments -Wait -PassThru).ExitCode
+        Write-Host (Get-Content -Path $DeployResults | Out-String)
 
                 if ($exitCode -ne 0) {
                     Write-Host "##vso[task.logissue type=error;] Error while calling MSBuild, Exit Code: $exitCode"

@@ -11,7 +11,8 @@
         [Parameter(Mandatory = $true)]
         [string]$Environment,
 
-        [string]$BTDeployMgmtDB = 'true'
+        [string]$BTDeployMgmtDB = 'true',
+        [string]$BtsAccount=''
     )
     Begin {
         . ..\private\Init-BTDFTasks.ps1
@@ -46,14 +47,16 @@
             $DeployResults = Get-ChildItem -Path $ApplicationPath -Filter 'DeployResults' -Recurse | Select-Object -ExpandProperty FullName -First 1
             $DeployResults = Join-Path $DeployResults 'DeployResults.txt'
 
-            $arguments = [string[]]@(
-                "/l:FileLogger,Microsoft.Build.Engine;logfile=`"$DeployResults`""
-                '/p:Configuration=Server'
-                "/p:ENV_SETTINGS=`"$EnvironmentSettings`""
-                "/p:DeployBizTalkMgmtDB=$BTDeployMgmtDB"
-                '/target:Deploy'
-                "`"$BTDFProject`""
-            )
+    $arguments = [string[]]@(
+        "/l:FileLogger,Microsoft.Build.Engine;logfile=`"$DeployResults`""
+        '/p:Configuration=Server'
+        "/p:ENV_SETTINGS=`"$EnvironmentSettings`""
+        "/p:BT_DEPLOY_MGMT_DB=$BTDeployMgmtDB"
+        "/p:DeployBizTalkMgmtDB=$BTDeployMgmtDB"
+        "/p:BTSACCOUNT=`"$BtsAccount`""
+        '/target:Deploy'
+        "`"$BTDFProject`""
+    )
 
             $cmd = $BTDFMSBuild, ($arguments -join ' ') -join ' '
             Write-Host $cmd
