@@ -15,7 +15,7 @@
         [string]$BtsAccount=''
     )
     Begin {
-        . ..\private\Init-BTDFTasks.ps1
+        . $PSScriptRoot\..\private\Init-BTDFTasks.ps1
     }
     Process {
 
