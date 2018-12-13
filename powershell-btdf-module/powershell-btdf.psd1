@@ -9,7 +9,7 @@
     
     # Version number of this module.
     # ModuleVersion = (Get-WixLocalConfig -ProductVersion).ProductVersion
-    ModuleVersion = '1.0.0'
+    ModuleVersion = '1.1.0'
     
     # ID used to uniquely identify this module
     GUID = '0AB3F0A4-1749-4B5E-B71B-754569AE8797'
