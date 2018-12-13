@@ -49,6 +49,8 @@
                 if ($exitCode -ne 0) {
                     Write-Host "##vso[task.logissue type=error;] Error while calling MSBuild, Exit Code: $exitCode"
                     Write-Host ("##vso[task.complete result=Failed;] Deploy-BTDFApplication error while calling MSBuild, Exit Code: {0}" -f $exitCode)
+					$exception = "Undeploy-BTDFApplication error while calling MSBuild, Exit Code: $($exitCode)"
+					throw $exception
                 }
                 else {
                     Write-Host "##vso[task.complete result=Succeeded;]DONE"
