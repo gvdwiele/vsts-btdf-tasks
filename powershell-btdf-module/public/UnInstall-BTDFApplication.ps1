@@ -9,7 +9,7 @@
     )
     Begin {
         . $PSScriptRoot\..\private\Init-BTDFTasks.ps1
-        . $PSScriptRoot\..\private\Get-MSIFileInformation.ps1"
+        . $PSScriptRoot\..\private\Get-MSIFileInformation.ps1
     }
     Process {
         $InstallGuid = [Guid]::Empty
